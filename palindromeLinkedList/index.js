@@ -13,16 +13,17 @@ linkedList.addLast(2);
 // console.log(backward)
 // console.log(`${linkedList}`)
 function isPalindrome(head) {
-    var array = toArray(head);
-    return array.join('') === array.reverse().join('');
-}
-function toArray(head) {
-    var items = [];
+    var array = [];
     var currentNode = head;
     while (currentNode) {
-        items.push(currentNode.value);
+        array.push(currentNode.value);
         currentNode = currentNode.next;
     }
-    return items;
+    while (head) {
+        if (head.value !== array.pop())
+            return false;
+        head = head.next;
+    }
+    return true;
 }
 console.log(isPalindrome(linkedList.getHead()));
