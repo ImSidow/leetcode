@@ -1,6 +1,4 @@
 function romanToInteger(s: string): number {
-    let roman = s;
-
     let romanChar = {
         I: 1,
         IV: 4,
@@ -19,7 +17,7 @@ function romanToInteger(s: string): number {
 
     let result = 0;
     for (let i = 0; i < roman.length; i++) {
-        let char = '';
+        let char = "";
         if (i + 1 < roman.length) {
             char = roman[i] + roman[i + 1];
             if (romanChar[char]) {
@@ -34,5 +32,5 @@ function romanToInteger(s: string): number {
     return result;
 }
 
-console.log(romanToInteger('LVIII'));
-console.log(romanToInteger('MCMXCIV'));
+console.log(romanToInteger("LVIII"));
+console.log(romanToInteger("MCMXCIV"));
