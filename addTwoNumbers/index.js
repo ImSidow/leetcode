@@ -1,12 +1,15 @@
-function twoSum(nums, target) {
-    for (var i = 0; i < nums.length; i++) {
-        for (var k = 0; k < nums.length; k++) {
-            if (nums[i] + nums[k] === target && i !== k) {
-                console.log(nums[i], nums[k]);
-                return [i, k];
-            }
+// you are given an integer array k whose starting index is 0. In on operation, you can choose an element of the array and add 1 to its value
+// return the minimum number of operations necessary to make sure that the ith element of k is always greater in value than i-1
+// for example, if k = [1, 2, 3] then one possible solution is to add 1 to the third element, making k = [1, 2, 4]
+var change = function (k) {
+    var count = 0;
+    for (var i = 1; i < k.length; i++) {
+        if (k[i] <= k[i - 1]) {
+            var diff = k[i - 1] - k[i] + 1;
+            k[i] += diff;
+            count += diff;
         }
     }
-    return [];
-}
-console.log(twoSum([3, 2, 4], 6));
+    return count;
+};
+console.log(change([2, 2, 2]));
